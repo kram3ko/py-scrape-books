@@ -23,7 +23,7 @@ class BooksSpider(scrapy.Spider):
             price=float(response.css(".price_color::text").get().replace("£", "")),
             amount_in_stock=int(response.css(".instock").re_first(r"\d+")),
             rating=self.rating_map[response.css(".star-rating::attr(class)").get().split()[-1]],
-            category=response.css(".breadcrumb > li > a::text")[-1].get(),
+            category=response.css(".breadcrumb > li > a::text")[-2].get(),
             description=response.css("#product_description + p::text").get(),
             upc=response.css(".table tr td::text").get(),
         )

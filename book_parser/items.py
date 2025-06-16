@@ -2,15 +2,13 @@
 #
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/items.html
-from dataclasses import dataclass
+import scrapy
 
-
-@dataclass
-class BooksParserItem:
-    title: str
-    price: float
-    amount_in_stock: int
-    rating: int
-    category: str
-    description: str
-    upc: str
+class BooksParserItem(scrapy.Item):
+    title = scrapy.Field()
+    price = scrapy.Field()
+    amount_in_stock = scrapy.Field()
+    rating = scrapy.Field()
+    category = scrapy.Field()
+    description = scrapy.Field()
+    upc = scrapy.Field()
